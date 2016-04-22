@@ -7,7 +7,7 @@
         xmlns:convert="clr-namespace:InternetShop.Convert"
         xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
         mc:Ignorable="d"
-        Title="ShowProductsWindow" Height="600" Width="800">
+        Title="ShowProductsWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
     <Window.Resources>
         <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
 
@@ -16,7 +16,7 @@
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
             <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4"
-                    Width="540">
+                    HorizontalAlignment="Stretch">
                 <Grid Margin="3" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -54,13 +54,34 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <!-- Menu -->
+
+        <Border Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
+                <TextBox  Grid.Column="1" x:Name="TbSearch" TextWrapping="Wrap" Text="TextBox" Margin="46,25,10,24"/>
+                <Button Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="21,25,33,24" Width="100" />
+                <Button Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+            </Grid>
+
+        </Border>
 
         <Border Grid.Row="1" Grid.Column="0"  BorderThickness="0 0 1 0" BorderBrush="Blue">
             <!-- Tree View -->
@@ -84,7 +105,7 @@
             </TreeView>
         </Border>
 
-        
+
         <!-- List Box -->
         <ListBox Grid.Row="1" Grid.Column="1" Name="lbProducts" Margin="5"
                      BorderThickness="0" 
