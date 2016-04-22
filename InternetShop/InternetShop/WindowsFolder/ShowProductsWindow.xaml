@@ -29,7 +29,7 @@
             </Border>
         </DataTemplate>
 
-        <!-- STYLE -->
+        <!-- STYLE LIST-->
         <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
             <Setter Property="Template">
                 <Setter.Value>
@@ -45,6 +45,99 @@
                                 <Setter TargetName="_Border" Property="Background" Value="White"/>
                                 <Setter Property="Foreground" Value="Red"/>
                             </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- STYLE Button-->
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="3 2">
+                            <Rectangle Name="r1" StrokeThickness="1" Stroke="Gray" StrokeDashArray="2 2"/>
+                            <Border Name="border" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}"  CornerRadius="0" BorderThickness="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ShadowStyle">
+            <Setter Property="Control.Foreground" Value="LightGray" />
+        </Style>
+
+        <Style x:Key="InformButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.5"/>
+                        <GradientStop Color="WhiteSmoke" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+        				BorderThickness="1"
+        				Padding="4,2" 
+        				BorderBrush="DarkGray" 
+        				CornerRadius="0" 
+        				Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" 
+        	                           VerticalAlignment="Center" Name="contentShadow" 
+        					Style="{StaticResource ShadowStyle}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                                            <GradientStop Color="White" Offset="0"/>
+                                            <GradientStop Color="#FFFFE0" Offset="0.5"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <TranslateTransform Y="1.0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                                <Setter Property="Foreground" Value="Gray" />
+                            </Trigger>
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -76,9 +169,9 @@
                     <ColumnDefinition Width="33*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
-                <TextBox  Grid.Column="1" x:Name="TbSearch" TextWrapping="Wrap" Text="TextBox" Margin="46,25,10,24"/>
-                <Button Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="21,25,33,24" Width="100" />
-                <Button Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+                <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
             </Grid>
 
         </Border>
