@@ -6,13 +6,128 @@
         xmlns:local="clr-namespace:InternetShop.WindowsFolder"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="600" Width="800"  MinWidth="800" MinHeight="600">
+    <Window.Resources>
+        <!-- STYLE Button-->
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="3 2">
+                            <Rectangle Name="r1" StrokeThickness="1" Stroke="Gray" StrokeDashArray="2 2"/>
+                            <Border Name="border" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}"  CornerRadius="0" BorderThickness="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ShadowStyle">
+            <Setter Property="Control.Foreground" Value="LightGray" />
+        </Style>
+
+        <Style x:Key="InformButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.5"/>
+                        <GradientStop Color="WhiteSmoke" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+        				BorderThickness="1"
+        				Padding="4,2" 
+        				BorderBrush="DarkGray" 
+        				CornerRadius="0" 
+        				Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" 
+        	                           VerticalAlignment="Center" Name="contentShadow" 
+        					Style="{StaticResource ShadowStyle}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                                            <GradientStop Color="White" Offset="0"/>
+                                            <GradientStop Color="#FFFFE0" Offset="0.5"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <TranslateTransform Y="1.0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                                <Setter Property="Foreground" Value="Gray" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Border Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
+                <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+            </Grid>
 
-        <Grid Grid.Row="1">
+        </Border>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -25,46 +140,49 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <TextBox x:Name="TbEmail" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblMail" Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="TbEmail" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalAlignment="Right" Width="220"/>
+                <Label x:Name="LblMail" Target="{Binding ElementName=TbEmail}"  Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0"/>
             </Grid>
-            <Grid Grid.Row="1">
-                <TextBox x:Name="TbLogin" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="TbLogin" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
+                <Label x:Name="LblLogin" Target="{Binding ElementName=TbLogin}" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,0,0,0"/>
             </Grid>
-            <Grid Grid.Row="2">
-                <TextBox x:Name="TbName" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblName" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="TbName" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
+                <Label x:Name="LblName" Target="{Binding ElementName=TbName}" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,0,0,0"/>
             </Grid>
-            <Grid Grid.Row="3">
-                <TextBox x:Name="TbSurname" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblSurname" Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="TbSurname" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
+                <Label x:Name="LblSurname"  Target="{Binding ElementName=TbSurname}" Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-12,0,0,0"/>
             </Grid>
-            <Grid Grid.Row="4">
-                <PasswordBox x:Name="ConfirmPassb" Height="23" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblConfirmPassb" Content="Confirm password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="229,10,0,0"/>
+            <Grid Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <PasswordBox x:Name="ConfirmPassb" Height="25" VerticalAlignment="Top" Width="220"  Margin="50,0,0,0"/>
+                <Label x:Name="LblConfirmPassb"  Target="{Binding ElementName=ConfirmPassb}" Content="Confirm password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-61,-1,0,0"/>
             </Grid>
-            <Grid Grid.Row="5">
-                <PasswordBox x:Name="Passb" Height="23" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblPassb" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <PasswordBox x:Name="Passb" Height="25" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
+                <Label x:Name="LblPassb"  Target="{Binding ElementName=Passb}" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-15,-1,0,0"/>
             </Grid>
-            <Grid Grid.Row="6">
-                <Canvas x:Name="CanvasCaptcha" Height="23" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblCaptcha" Content="Captcha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="243,10,261,10" Height="35" Width="288">
+                <Canvas x:Name="CanvasCaptcha" Height="35" VerticalAlignment="Top" Margin="68,0,0,0"/>
+                <Label x:Name="LblCaptcha"  Target="{Binding ElementName=CanvasCaptcha}" Content="Captcha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
             </Grid>
-            <Grid Grid.Row="7">
-                <CheckBox x:Name="CbConfirm" Height="23" VerticalAlignment="Top" Margin="340,10,276,0"/>
-                <Label x:Name="LblConfirm" Content="Captcha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="267,10,0,0"/>
+            <Grid Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="312,10,261,10" Height="35" Width="219">
+                <CheckBox x:Name="CbConfirm" Height="14" VerticalAlignment="Top" Margin="50,10,0,0" RenderTransformOrigin="-6.923,-2.071">
+                    <CheckBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform />
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </CheckBox.RenderTransform>
+                </CheckBox>
+                <Label x:Name="LblConfirm"   Target="{Binding ElementName=CbConfirm}" Content="I Agree" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,2,0,0"/>
             </Grid>
-            <Grid Grid.Row="8">
-                <Button x:Name="BtnSubmit" Content="Submit" Height="23" VerticalAlignment="Top" Margin="340,10,276,0"/>
-            </Grid>
-            <Grid>
-                <TextBox x:Name="TbTelephone" HorizontalAlignment="Left" Height="23" Margin="177,164,0,0" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top" Width="175"/>
-                <Slider x:Name="SldTelephone" HorizontalAlignment="Left" Margin="177,202,0,0" VerticalAlignment="Top" Width="175" TickFrequency="1"
-                    IsSnapToTickEnabled="True" Minimum="0" Maximum="9999999"/>
-                <Label x:Name="lblTelephone" Content="Number telephone" HorizontalAlignment="Left" Margin="62,162,0,0" VerticalAlignment="Top"/>
+            <Grid Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="261,10,261,0" Height="45" Width="270" >
+                <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Submit" Height="23" Width="120" Padding="15,5,15,5" VerticalAlignment="Top" Margin="140,12,10,0" />
             </Grid>
 
         </Grid>
