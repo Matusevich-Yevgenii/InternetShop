@@ -24,5 +24,10 @@ namespace InternetShop.WindowsFolder
         {
             InitializeComponent();
         }
+
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
