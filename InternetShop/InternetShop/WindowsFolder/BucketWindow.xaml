@@ -1,0 +1,195 @@
+﻿<Window x:Class="InternetShop.WindowsFolder.BucketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InternetShop.WindowsFolder"
+        xmlns:convert="clr-namespace:InternetShop.Convert"
+        xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
+        mc:Ignorable="d"
+        Title="BucketWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
+    <Window.Resources>
+        <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
+
+        <data:ProductList x:Key="Products"></data:ProductList>
+
+        <!--Шаблон для одного элемента списка-->
+        <DataTemplate x:Key="ListDataTemplate">
+            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4"
+                    HorizontalAlignment="Stretch">
+                <Grid Margin="3" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontWeight="Bold"
+                               Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
+                    <TextBlock Grid.Row="1" Text="{Binding Price}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- STYLE LIST-->
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="_Border"
+                                Padding="0"
+                                SnapsToDevicePixels="true"
+                                CornerRadius="5">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="_Border" Property="Background" Value="White"/>
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- STYLE Button-->
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="3 2">
+                            <Rectangle Name="r1" StrokeThickness="1" Stroke="Gray" StrokeDashArray="2 2"/>
+                            <Border Name="border" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}"  CornerRadius="0" BorderThickness="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ShadowStyle">
+            <Setter Property="Control.Foreground" Value="LightGray" />
+        </Style>
+
+        <Style x:Key="InformButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.5"/>
+                        <GradientStop Color="WhiteSmoke" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+        				BorderThickness="1"
+        				Padding="4,2" 
+        				BorderBrush="DarkGray" 
+        				CornerRadius="0" 
+        				Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" 
+        	                           VerticalAlignment="Center" Name="contentShadow" 
+        					Style="{StaticResource ShadowStyle}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                                            <GradientStop Color="White" Offset="0"/>
+                                            <GradientStop Color="#FFFFE0" Offset="0.5"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <TranslateTransform Y="1.0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightSkyBlue" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                                <Setter Property="Foreground" Value="Gray" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+
+        <Border BorderThickness="0 0 0 1" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
+                <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+            </Grid>
+
+        </Border>
+
+        <!-- List Box -->
+        <Border Grid.Row="1"  BorderThickness="0 0 0 0" BorderBrush="Black" Margin="50, 50, 50, 0">
+            <ListBox Name="lbProducts" 
+                     BorderThickness="0" 
+                     ItemsSource="{Binding Source={StaticResource Products}}" 
+                     ItemTemplate="{StaticResource ListDataTemplate}"
+                     ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Grid.RowSpan="2"/>
+        </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="392" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnShowProducts" Content="show prod..." Width="100" HorizontalAlignment="Right" Margin="0,35,50,40"/>
+            <Button Style="{StaticResource InformButton}" Grid.Column="0" x:Name="BtnMakeAnOrder" Content="make an order" Width="100" HorizontalAlignment="Left" Margin="50,35,0,40"/>
+        </Grid>
+
+    </Grid>
+</Window>
