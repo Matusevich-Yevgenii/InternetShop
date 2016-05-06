@@ -150,7 +150,7 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="792"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <!-- Menu -->
@@ -177,13 +177,46 @@
         <Grid  Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="246" />
-                <ColumnDefinition/>
+                <ColumnDefinition Width="45*" />
+                <ColumnDefinition Width="137*"/>
             </Grid.ColumnDefinitions>
 
 
-            <Button Style="{StaticResource InformButton}" x:Name="BtnShowProducts" Content="All products" Width="100" HorizontalAlignment="Right" Margin="0,10,41,260" Grid.Column="1"/>
-            <Image x:Name="image" Source="ferrari.jpg" HorizontalAlignment="Left" Height="200" Margin="23,28,0,0" VerticalAlignment="Top" Width="200"  Grid.Column="0"/>
-            <Button Style="{StaticResource InformButton}" x:Name="BtnAddtoBucket" Content="Add to Bucket" Width="200" HorizontalAlignment="Right" Margin="0,242,23,28"  Grid.Column="0"/>
+            <Button Style="{StaticResource InformButton}" x:Name="BtnShowProducts" Content="All products" Width="100" HorizontalAlignment="Right" Margin="0,13,41,0" Grid.Column="2" VerticalAlignment="Top" Height="26"/>
+            <Image x:Name="ImgMain" Source="/InternetShop;component/ferrari.jpg" HorizontalAlignment="Left" Height="200" Margin="23,28,0,0" VerticalAlignment="Top" Width="200"  Grid.Column="0"/>
+            <Button Style="{StaticResource InformButton}" x:Name="BtnAddtoBucket" Content="Add to Bucket" Width="200" HorizontalAlignment="Right" Margin="0,0,23,25"  Grid.Column="0" VerticalAlignment="Bottom" Height="25"/>
+            <TextBlock x:Name="textBlock" Grid.Column="2" Margin="22,18,146,0" TextWrapping="Wrap" Text="Name1" VerticalAlignment="Top" Height="56" Width="243" RenderTransformOrigin="0.739,0.358"/>
+            <Label x:Name="label" Content="Name" Grid.Column="1" HorizontalAlignment="Left" Margin="45,18,0,0" VerticalAlignment="Top" Width="49" Height="26"/>
+            <Label x:Name="label_Copy" Content="Price" Grid.Column="1" HorizontalAlignment="Left" Margin="45,79,0,0" VerticalAlignment="Top" Width="49" Height="26"/>
+            <TextBlock x:Name="textBlock_Copy" Grid.Column="2" Margin="22,84,10,0" TextWrapping="Wrap" Text="1543$" VerticalAlignment="Top" Height="63" Width="379" RenderTransformOrigin="0.739,0.358"/>
+            <Label x:Name="label_Copy1" Content="Warranty" Grid.Column="1" HorizontalAlignment="Left" Margin="45,142,0,0" VerticalAlignment="Top" Width="62" Height="26"/>
+            <TextBlock x:Name="textBlock_Copy1" Grid.Column="2" Margin="22,147,10,0" TextWrapping="Wrap" Text="2 years" VerticalAlignment="Top" Height="63" Width="379" RenderTransformOrigin="0.739,0.358"/>
+            <Label x:Name="label_Copy2" Content="Descriptions" Grid.Column="1" HorizontalAlignment="Left" Margin="45,210,0,0" VerticalAlignment="Top" Width="80" Height="26"/>
+            <TextBlock x:Name="textBlock_Copy2" Grid.Column="2" Margin="22,215,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="379" RenderTransformOrigin="0.739,0.358"><Run Text="Description 1 Description 1 Description rfds1111111111111111111111"/><LineBreak/><Run Text="Description 1 Description 1 Description 1 "/><LineBreak/><Run Text="Description 1 Description 1"/></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label Grid.Column="0" x:Name="LblSame" Content="Products of the same category" FontSize="14" Margin="25,10,0,7" HorizontalAlignment="Left" Width="223"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="ImgSame1" Source="/InternetShop;component/ferrari.jpg" HorizontalAlignment="Left" Height="100" Margin="51,10,0,0" VerticalAlignment="Top" Width="100"  Grid.Column="0" />
+            <Label x:Name="LblSame1" Content="Name1" HorizontalAlignment="Left" Margin="51,110,0,0" VerticalAlignment="Top" Grid.Column="0" Width="100" />
+
+            <Image x:Name="ImgSame2" Source="/InternetShop;component/ferrari.jpg" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="100"  Grid.Column="1" Margin="49,10,49,0"/>
+            <Label x:Name="LblSame2" Content="Name2" HorizontalAlignment="Center" Margin="49,110,49,0" VerticalAlignment="Top" Grid.Column="1" Width="100"/>
+
+            <Image x:Name="ImgSame3" Source="/InternetShop;component/ferrari.jpg" HorizontalAlignment="Center" Height="100"  VerticalAlignment="Top" Width="100"  Grid.Column="2" Margin="49,10,49,0"/>
+            <Label x:Name="LblSame3" Content="Name3" HorizontalAlignment="Center" Margin="49,110,49,0" VerticalAlignment="Top" Grid.Column="2" Width="100" />
+
+            <Image x:Name="ImgSame4" Source="/InternetShop;component/ferrari.jpg" HorizontalAlignment="Right" Height="100"  VerticalAlignment="Top" Width="100"  Grid.Column="3" Margin="0,10,42,0"/>
+            <Label x:Name="LblSame4" Content="Name4" HorizontalAlignment="Right" Margin="0,110,42,0" VerticalAlignment="Top" Grid.Column="3" Width="100"/>
+
         </Grid>
     </Grid>
 </Window>
