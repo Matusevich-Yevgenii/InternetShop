@@ -4,27 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternetShop"
-        xmlns:convert="clr-namespace:InternetShop.Convert"
         xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
+        xmlns:converts="clr-namespace:InternetShop.Convert"
         mc:Ignorable="d"
         Title="ShowProductsWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
     <Window.Resources>
-        <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
-
+        <converts:StringUpperConverter x:Key="StringUpperConverter"></converts:StringUpperConverter>
+        <converts:ImagePathConverter x:Key="ImagePathConverter"></converts:ImagePathConverter>
+        
         <data:ProductList x:Key="Products"></data:ProductList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
-            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4"
-                    HorizontalAlignment="Stretch">
+            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" Width="370">
                 <Grid Margin="3" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock FontWeight="Bold"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Width="100" Height="75" Margin="6"
+                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
+                    <StackPanel Grid.Column="1" Margin="2,6">
+                        <TextBlock FontWeight="Bold"
                                Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
-                    <TextBlock Grid.Row="1" Text="{Binding Price}"/>
+                        <TextBlock Text="{Binding Price}"/>
+                    </StackPanel>
                 </Grid>
             </Border>
         </DataTemplate>

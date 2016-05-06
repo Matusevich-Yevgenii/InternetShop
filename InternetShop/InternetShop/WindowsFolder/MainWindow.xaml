@@ -123,7 +123,7 @@
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
                 <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
                 <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
-                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Register" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24" Click="BtnSignIn_Click"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Register" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
             </Grid>
 
         </Border>
@@ -148,7 +148,7 @@
                 <Label x:Name="LblPassb"  Target="{Binding ElementName=Passb}" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-15,-1,0,0"/>
             </Grid>
             <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="286" >
-                <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Log in" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="52,10,149,0" />
+                <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Log in" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="59,10,142,0" />
                 <Label x:Name="LblForgot" Content="forgot password?" HorizontalAlignment="Left" Margin="183,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.077" Height="35" Width="103"/>
             </Grid>
             <Grid Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="64" Width="204">
