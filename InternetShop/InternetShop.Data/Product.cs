@@ -24,11 +24,10 @@ namespace InternetShop.Data
 
         public Product() { }
 
-        public Product(string name, string model, byte[] image, string price, string warranty, string desctiptions)
+        public Product(string name, string model, string price, string warranty, string desctiptions)
         {
             Name = name;
             Model = model;
-            Image = image;
             Price = price;
             Warranty = warranty;
             Descriptions = desctiptions;
@@ -40,22 +39,26 @@ namespace InternetShop.Data
     {
         public ProductList()
         {
-            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.CarDBConnectionString"].ConnectionString))
+            //using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.CarDBConnectionString"].ConnectionString))
+            //{
+            //    conn.Open();
+            //    var sql = new SqlCommand("SELECT * FROM CarTable", conn);
+            //    using (var reader = sql.ExecuteReader())
+            //    {
+            //        if (reader.HasRows)
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                this.Add(new Product((string) reader["name"], (string) reader["model"], (string) reader["price"],
+            //                    (string) reader["warranty"], (string) reader["descriptions"]) {Id = (int) reader["id"]});
+            //            }
+            //        }
+            //    }
+            //}
+            //
+            for (int i = 0; i < 100; i++)
             {
-                conn.Open();
-                var sql = new SqlCommand("SELECT * FROM CarTable", conn);
-                using (var reader = sql.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                        while (reader.Read())
-                        {
-                            this.Add(new Product((string) reader["name"], (string) reader["model"],
-                                (byte[]) reader["image"], (string) reader["price"],
-                                (string) reader["warranty"], (string) reader["descriptions"]) {Id = (int) reader["id"]});
-
-
-                        }
-                }
+                this.Add(new Product(i + "fds", (i + i * 3) + "Fds", "gfg", "gfg", "gfd"));
             }
         }
     }

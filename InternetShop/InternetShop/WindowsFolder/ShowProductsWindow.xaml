@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InternetShop"
-        xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
         xmlns:converts="clr-namespace:InternetShop.Convert"
+        xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
         mc:Ignorable="d"
         Title="ShowProductsWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
     <Window.Resources>
