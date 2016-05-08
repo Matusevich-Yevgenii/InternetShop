@@ -11,23 +11,33 @@
     <Window.Resources>
         <converts:StringUpperConverter x:Key="StringUpperConverter"></converts:StringUpperConverter>
         <converts:ImagePathConverter x:Key="ImagePathConverter"></converts:ImagePathConverter>
+        <converts:MoneyConverter x:Key="MoneyConverter"></converts:MoneyConverter>
         
         <data:ProductList x:Key="Products"></data:ProductList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
-            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" Width="370">
+            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4">
                 <Grid Margin="3" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Image Grid.RowSpan="2" Width="100" Height="75" Margin="6"
+                    <Image Grid.RowSpan="2" Width="100" Height="75"
                            Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
-                    <StackPanel Grid.Column="1" Margin="2,6">
+                    <StackPanel Grid.Column="1" Margin="20, 6, 2, 6">
                         <TextBlock FontWeight="Bold"
                                Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
-                        <TextBlock Text="{Binding Price}"/>
+                        <TextBlock FontWeight="Bold"
+                               Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="20, 6, 2, 6">
+                        <TextBlock Text="{Binding Descriptions}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Margin="20, 6, 15, 6" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>
                     </StackPanel>
                 </Grid>
             </Border>

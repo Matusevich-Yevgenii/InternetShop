@@ -27,7 +27,7 @@ namespace InternetShop.WindowsFolder
     {
         DataSet ds;
         string strName, imageName;
-        string constr = ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.CarDBConnectionString"].ConnectionString;
+        string constr = ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString;
 
         public EditProducts()
         {
@@ -126,6 +126,7 @@ namespace InternetShop.WindowsFolder
                                 //BindImageList();
                             }
                         }
+                        conn.Close();
                     }
                 }
                 TbName.Text = TbModel.Text = TbPrice.Text = TbWarranty.Text = TbDescription.Text = "";
