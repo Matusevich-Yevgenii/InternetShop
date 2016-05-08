@@ -12,26 +12,11 @@ namespace InternetShop.Data
 
         public string Name { get; set; }
 
-        public string Model { get; set; }
-
-        public byte[] Image { get; set; }
-
-        public string Price { get; set; }
-
-        public string Warranty { get; set; }
-
-        public string Descriptions { get; set; }
-
         public Product() { }
 
-        public Product(string name, string model, byte[] image, string price, string warranty, string desctiptions)
+        public Product(string name)
         {
             Name = name;
-            Model = model;
-            Image = image;
-            Price = price;
-            Warranty = warranty;
-            Descriptions = desctiptions;
             ListProducts.Add(this);
         }
     }
@@ -50,9 +35,7 @@ namespace InternetShop.Data
                     {
                         while (reader.Read())
                         {
-                            this.Add(new Product((string)reader["name"], (string)reader["model"],
-                                (byte[])reader["image"], (string)reader["price"],
-                                (string)reader["warranty"], (string)reader["descriptions"])
+                            this.Add(new Product((string)reader["name"])
                             { Id = (int)reader["id"] });
                         }
                     }

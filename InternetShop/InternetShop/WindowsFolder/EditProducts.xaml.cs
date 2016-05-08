@@ -113,12 +113,12 @@ namespace InternetShop.WindowsFolder
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
                             //Pass byte array into database
-                            cmd.Parameters.Add(new SqlParameter("name", TbName.Text));
-                            cmd.Parameters.Add(new SqlParameter("model", TbModel.Text));
-                            cmd.Parameters.Add(new SqlParameter("image", imgByteArr));
-                            cmd.Parameters.Add(new SqlParameter("price", TbPrice.Text));
-                            cmd.Parameters.Add(new SqlParameter("warranty", TbWarranty.Text));
-                            cmd.Parameters.Add(new SqlParameter("descriptions", TbDescription.Text));
+                            cmd.Parameters.Add(new SqlParameter("@name", TbName.Text));
+                            cmd.Parameters.Add(new SqlParameter("@model", TbModel.Text));
+                            cmd.Parameters.Add(new SqlParameter("@image", imgByteArr));
+                            cmd.Parameters.Add(new SqlParameter("@price", TbPrice.Text));
+                            cmd.Parameters.Add(new SqlParameter("@warranty", TbWarranty.Text));
+                            cmd.Parameters.Add(new SqlParameter("@descriptions", TbDescription.Text));
                             int result = cmd.ExecuteNonQuery();
                             if (result == 1)
                             {

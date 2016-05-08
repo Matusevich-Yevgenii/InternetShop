@@ -75,10 +75,10 @@
     <Compile Include="Convert\ImagePathConverter.cs" />
     <Compile Include="Convert\MoneyConverter.cs" />
     <Compile Include="Convert\StringUpperConverter.cs" />
-    <Compile Include="DbCarDataSet1.Designer.cs">
+    <Compile Include="DbCarDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbCarDataSet1.xsd</DependentUpon>
+      <DependentUpon>DbCarDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="WindowsFolder\BucketWindow.xaml.cs">
       <DependentUpon>BucketWindow.xaml</DependentUpon>
@@ -167,16 +167,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DbCarDataSet1.xsc">
-      <DependentUpon>DbCarDataSet1.xsd</DependentUpon>
+    <None Include="DbCarDataSet.xsc">
+      <DependentUpon>DbCarDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DbCarDataSet1.xsd">
+    <None Include="DbCarDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DbCarDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbCarDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DbCarDataSet1.xss">
-      <DependentUpon>DbCarDataSet1.xsd</DependentUpon>
+    <None Include="DbCarDataSet.xss">
+      <DependentUpon>DbCarDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -185,7 +185,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InternetShop.Data\InternetShop.Data.csproj">
