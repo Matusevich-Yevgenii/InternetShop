@@ -21,23 +21,23 @@
                 <Grid Margin="3" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <!-- <Image Grid.RowSpan="2" Width="100" Height="75"
-                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>-->
+                    <Image Grid.RowSpan="2" Width="100" Height="75"
+                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
                     <StackPanel Grid.Column="1" Margin="20, 6, 2, 6">
-                        <TextBlock FontWeight="Bold"
+                        <TextBlock TextWrapping="Wrap" FontWeight="Bold"
                                Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
-                        <!--<TextBlock FontWeight="Bold"
+                        <TextBlock TextWrapping="Wrap" FontWeight="Bold"
                                Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"/>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Margin="20, 6, 2, 6">
-                        <TextBlock Text="{Binding Descriptions}"/>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Descriptions}"/>
                     </StackPanel>
                     <StackPanel Grid.Column="3" Margin="20, 6, 15, 6" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>-->
+                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>
                     </StackPanel>
                 </Grid>
             </Border>
