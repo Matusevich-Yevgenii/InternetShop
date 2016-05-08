@@ -20,9 +20,9 @@ namespace InternetShop {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("CarDBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DbCarDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class CarDBDataSet : global::System.Data.DataSet {
+    public partial class DbCarDataSet1 : global::System.Data.DataSet {
         
         private CarTableDataTable tableCarTable;
         
@@ -30,7 +30,7 @@ namespace InternetShop {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public CarDBDataSet() {
+        public DbCarDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace InternetShop {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected CarDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DbCarDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace InternetShop {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            CarDBDataSet cln = ((CarDBDataSet)(base.Clone()));
+            DbCarDataSet1 cln = ((DbCarDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace InternetShop {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "CarDBDataSet";
+            this.DataSetName = "DbCarDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/CarDBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DbCarDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCarTable = new CarTableDataTable();
@@ -225,7 +225,7 @@ namespace InternetShop {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            CarDBDataSet ds = new CarDBDataSet();
+            DbCarDataSet1 ds = new DbCarDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -281,17 +281,7 @@ namespace InternetShop {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnName;
-            
-            private global::System.Data.DataColumn columnModel;
-            
             private global::System.Data.DataColumn columnImage;
-            
-            private global::System.Data.DataColumn columnPrice;
-            
-            private global::System.Data.DataColumn columnWarranty;
-            
-            private global::System.Data.DataColumn columnDescriptions;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -336,49 +326,9 @@ namespace InternetShop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModelColumn {
-                get {
-                    return this.columnModel;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ImageColumn {
                 get {
                     return this.columnImage;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PriceColumn {
-                get {
-                    return this.columnPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WarrantyColumn {
-                get {
-                    return this.columnWarranty;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DescriptionsColumn {
-                get {
-                    return this.columnDescriptions;
                 }
             }
             
@@ -419,16 +369,11 @@ namespace InternetShop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CarTableRow AddCarTableRow(string Name, string Model, byte[] Image, string Price, string Warranty, string Descriptions) {
+            public CarTableRow AddCarTableRow(byte[] Image) {
                 CarTableRow rowCarTableRow = ((CarTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name,
-                        Model,
-                        Image,
-                        Price,
-                        Warranty,
-                        Descriptions};
+                        Image};
                 rowCarTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCarTableRow);
                 return rowCarTableRow;
@@ -459,12 +404,7 @@ namespace InternetShop {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnName = base.Columns["Name"];
-                this.columnModel = base.Columns["Model"];
                 this.columnImage = base.Columns["Image"];
-                this.columnPrice = base.Columns["Price"];
-                this.columnWarranty = base.Columns["Warranty"];
-                this.columnDescriptions = base.Columns["Descriptions"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -472,18 +412,8 @@ namespace InternetShop {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnModel = new global::System.Data.DataColumn("Model", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModel);
                 this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImage);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrice);
-                this.columnWarranty = new global::System.Data.DataColumn("Warranty", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWarranty);
-                this.columnDescriptions = new global::System.Data.DataColumn("Descriptions", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescriptions);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -492,17 +422,7 @@ namespace InternetShop {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
-                this.columnModel.AllowDBNull = false;
-                this.columnModel.MaxLength = 50;
                 this.columnImage.AllowDBNull = false;
-                this.columnPrice.AllowDBNull = false;
-                this.columnPrice.MaxLength = 50;
-                this.columnWarranty.AllowDBNull = false;
-                this.columnWarranty.MaxLength = 50;
-                this.columnDescriptions.AllowDBNull = false;
-                this.columnDescriptions.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -570,7 +490,7 @@ namespace InternetShop {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                CarDBDataSet ds = new CarDBDataSet();
+                DbCarDataSet1 ds = new DbCarDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -656,67 +576,12 @@ namespace InternetShop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name {
-                get {
-                    return ((string)(this[this.tableCarTable.NameColumn]));
-                }
-                set {
-                    this[this.tableCarTable.NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Model {
-                get {
-                    return ((string)(this[this.tableCarTable.ModelColumn]));
-                }
-                set {
-                    this[this.tableCarTable.ModelColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public byte[] Image {
                 get {
                     return ((byte[])(this[this.tableCarTable.ImageColumn]));
                 }
                 set {
                     this[this.tableCarTable.ImageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Price {
-                get {
-                    return ((string)(this[this.tableCarTable.PriceColumn]));
-                }
-                set {
-                    this[this.tableCarTable.PriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Warranty {
-                get {
-                    return ((string)(this[this.tableCarTable.WarrantyColumn]));
-                }
-                set {
-                    this[this.tableCarTable.WarrantyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Descriptions {
-                get {
-                    return ((string)(this[this.tableCarTable.DescriptionsColumn]));
-                }
-                set {
-                    this[this.tableCarTable.DescriptionsColumn] = value;
                 }
             }
         }
@@ -756,7 +621,7 @@ namespace InternetShop {
         }
     }
 }
-namespace InternetShop.CarDBDataSetTableAdapters {
+namespace InternetShop.DbCarDataSet1TableAdapters {
     
     
     /// <summary>
@@ -881,53 +746,26 @@ namespace InternetShop.CarDBDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CarTable";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("Model", "Model");
             tableMapping.ColumnMappings.Add("Image", "Image");
-            tableMapping.ColumnMappings.Add("Price", "Price");
-            tableMapping.ColumnMappings.Add("Warranty", "Warranty");
-            tableMapping.ColumnMappings.Add("Descriptions", "Descriptions");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CarTable] WHERE (([Id] = @Original_Id) AND ([Name] = @Original" +
-                "_Name) AND ([Model] = @Original_Model) AND ([Price] = @Original_Price) AND ([War" +
-                "ranty] = @Original_Warranty) AND ([Descriptions] = @Original_Descriptions))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CarTable] WHERE (([Id] = @Original_Id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Warranty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Warranty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descriptions", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descriptions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CarTable] ([Name], [Model], [Image], [Price], [Warranty], [Descriptions]) VALUES (@Name, @Model, @Image, @Price, @Warranty, @Descriptions);
-SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CarTable] ([Image]) VALUES (@Image);\r\nSELECT Id, Image FROM Ca" +
+                "rTable WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Warranty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Warranty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descriptions", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descriptions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CarTable] SET [Name] = @Name, [Model] = @Model, [Image] = @Image, [Price] = @Price, [Warranty] = @Warranty, [Descriptions] = @Descriptions WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Model] = @Original_Model) AND ([Price] = @Original_Price) AND ([Warranty] = @Original_Warranty) AND ([Descriptions] = @Original_Descriptions));
-SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CarTable] SET [Image] = @Image WHERE (([Id] = @Original_Id));\r\nSELE" +
+                "CT Id, Image FROM CarTable WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Warranty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Warranty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descriptions", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descriptions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Warranty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Warranty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descriptions", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descriptions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -935,7 +773,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::InternetShop.Properties.Settings.Default.CarDBConnectionString;
+            this._connection.ConnectionString = global::InternetShop.Properties.Settings.Default.DbCarConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -944,7 +782,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM dbo.CarTable";
+            this._commandCollection[0].CommandText = "SELECT Id, Image FROM dbo.CarTable";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -952,7 +790,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CarDBDataSet.CarTableDataTable dataTable) {
+        public virtual int Fill(DbCarDataSet1.CarTableDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -965,9 +803,9 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CarDBDataSet.CarTableDataTable GetData() {
+        public virtual DbCarDataSet1.CarTableDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CarDBDataSet.CarTableDataTable dataTable = new CarDBDataSet.CarTableDataTable();
+            DbCarDataSet1.CarTableDataTable dataTable = new DbCarDataSet1.CarTableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -975,14 +813,14 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CarDBDataSet.CarTableDataTable dataTable) {
+        public virtual int Update(DbCarDataSet1.CarTableDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CarDBDataSet dataSet) {
+        public virtual int Update(DbCarDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "CarTable");
         }
         
@@ -1005,38 +843,8 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Name, string Original_Model, string Original_Price, string Original_Warranty, string Original_Descriptions) {
+        public virtual int Delete(int Original_Id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
-            }
-            if ((Original_Model == null)) {
-                throw new global::System.ArgumentNullException("Original_Model");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Model));
-            }
-            if ((Original_Price == null)) {
-                throw new global::System.ArgumentNullException("Original_Price");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Price));
-            }
-            if ((Original_Warranty == null)) {
-                throw new global::System.ArgumentNullException("Original_Warranty");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Warranty));
-            }
-            if ((Original_Descriptions == null)) {
-                throw new global::System.ArgumentNullException("Original_Descriptions");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Descriptions));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1057,42 +865,12 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Model, byte[] Image, string Price, string Warranty, string Descriptions) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
-            }
-            if ((Model == null)) {
-                throw new global::System.ArgumentNullException("Model");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Model));
-            }
+        public virtual int Insert(byte[] Image) {
             if ((Image == null)) {
                 throw new global::System.ArgumentNullException("Image");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((byte[])(Image));
-            }
-            if ((Price == null)) {
-                throw new global::System.ArgumentNullException("Price");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Price));
-            }
-            if ((Warranty == null)) {
-                throw new global::System.ArgumentNullException("Warranty");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Warranty));
-            }
-            if ((Descriptions == null)) {
-                throw new global::System.ArgumentNullException("Descriptions");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Descriptions));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((byte[])(Image));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1114,75 +892,15 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Model, byte[] Image, string Price, string Warranty, string Descriptions, int Original_Id, string Original_Name, string Original_Model, string Original_Price, string Original_Warranty, string Original_Descriptions, int Id) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
-            }
-            if ((Model == null)) {
-                throw new global::System.ArgumentNullException("Model");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Model));
-            }
+        public virtual int Update(byte[] Image, int Original_Id, int Id) {
             if ((Image == null)) {
                 throw new global::System.ArgumentNullException("Image");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((byte[])(Image));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((byte[])(Image));
             }
-            if ((Price == null)) {
-                throw new global::System.ArgumentNullException("Price");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Price));
-            }
-            if ((Warranty == null)) {
-                throw new global::System.ArgumentNullException("Warranty");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Warranty));
-            }
-            if ((Descriptions == null)) {
-                throw new global::System.ArgumentNullException("Descriptions");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Descriptions));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Name));
-            }
-            if ((Original_Model == null)) {
-                throw new global::System.ArgumentNullException("Original_Model");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Model));
-            }
-            if ((Original_Price == null)) {
-                throw new global::System.ArgumentNullException("Original_Price");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Price));
-            }
-            if ((Original_Warranty == null)) {
-                throw new global::System.ArgumentNullException("Original_Warranty");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Warranty));
-            }
-            if ((Original_Descriptions == null)) {
-                throw new global::System.ArgumentNullException("Original_Descriptions");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Descriptions));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1203,8 +921,8 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Model, byte[] Image, string Price, string Warranty, string Descriptions, int Original_Id, string Original_Name, string Original_Model, string Original_Price, string Original_Warranty, string Original_Descriptions) {
-            return this.Update(Name, Model, Image, Price, Warranty, Descriptions, Original_Id, Original_Name, Original_Model, Original_Price, Original_Warranty, Original_Descriptions, Original_Id);
+        public virtual int Update(byte[] Image, int Original_Id) {
+            return this.Update(Image, Original_Id, Original_Id);
         }
     }
     
@@ -1299,7 +1017,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(CarDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DbCarDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._carTableTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CarTable.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1318,7 +1036,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(CarDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DbCarDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._carTableTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.CarTable.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1336,7 +1054,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(CarDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DbCarDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._carTableTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.CarTable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1378,7 +1096,7 @@ SELECT Id, Name, Model, Image, Price, Warranty, Descriptions FROM CarTable WHERE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(CarDBDataSet dataSet) {
+        public virtual int UpdateAll(DbCarDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
