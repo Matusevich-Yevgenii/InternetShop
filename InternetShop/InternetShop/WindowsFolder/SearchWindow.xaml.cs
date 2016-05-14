@@ -23,5 +23,12 @@ namespace InternetShop.WindowsFolder
         {
             InitializeComponent();
         }
+
+        private void BtnBucket_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new BucketWindow();
+            t.Show();
+            Close();
+        }
     }
 }

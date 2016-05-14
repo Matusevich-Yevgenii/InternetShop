@@ -122,8 +122,8 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
                 <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
-                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Register" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" Click="BtnSearch_Click" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Register" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24" Click="BtnSignIn_Click"/>
             </Grid>
 
         </Border>
@@ -157,7 +157,7 @@
             </Grid>
             <Grid Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="64" Width="204">
                 <Label x:Name="LblShowProducts" Content="go to shop without login?" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" Width="146"/>
-                <Button x:Name="BtnYes"  Style="{StaticResource InformButton}" Content="Yes" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="96,35,25,0" />
+                <Button x:Name="BtnYes"  Style="{StaticResource InformButton}" Content="Yes" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="96,35,25,0" Click="BtnYes_Click" />
             </Grid>
 
         </Grid>

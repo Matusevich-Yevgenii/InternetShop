@@ -75,14 +75,33 @@ namespace InternetShop.WindowsFolder
                     Errormessage.Text = "";
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into Users (email, login,name,surname,password) values('" + email + "','" + login + "','" + name + "','" + surname + "','" + password + "')", con);
-                    cmd.CommandType = CommandType.Text;
+                    var cmd =
+                        new SqlCommand(
+                            "Insert into Users (email, login,name,surname,password) values('" + email + "','" + login +
+                            "','" + name + "','" + surname + "','" + password + "')", con)
+                        {
+                            CommandType = CommandType.Text
+                        };
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Errormessage.Text = "You have Registered successfully.";
                     Reset();
                 }
             }
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new SearchWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new MainWindow();
+            t.Show();
+            Close();
         }
     }
 }

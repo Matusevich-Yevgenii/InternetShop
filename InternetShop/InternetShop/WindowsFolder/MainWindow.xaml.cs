@@ -69,5 +69,26 @@ namespace InternetShop.WindowsFolder
                 con.Close();
             }
         }
+
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new RegisterWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new SearchWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnYes_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new ShowProductsWindow();
+            t.Show();
+            Close();
+        }
     }
 }

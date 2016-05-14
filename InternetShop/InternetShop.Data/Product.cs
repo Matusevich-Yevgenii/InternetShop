@@ -6,8 +6,6 @@ namespace InternetShop.Data
 {
     public class Product
     {
-        public static List<Product> ListProducts = new List<Product>(); 
-
         public int? Id { get; set; }
 
         public string Name { get; set; }
@@ -32,7 +30,6 @@ namespace InternetShop.Data
             Price = price;
             Warranty = warranty;
             Descriptions = desctiptions;
-            ListProducts.Add(this);
         }
     }
 
