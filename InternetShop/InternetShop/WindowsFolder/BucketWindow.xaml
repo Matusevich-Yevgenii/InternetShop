@@ -181,8 +181,8 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
                 <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
-                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" Click="BtnSearch_Click" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Sign in" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24" Click="BtnSignIn_Click"/>
             </Grid>
 
         </Border>
@@ -201,8 +201,8 @@
                 <ColumnDefinition Width="392" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnShowProducts" Content="show prod..." Width="100" HorizontalAlignment="Right" Margin="0,35,50,40"/>
-            <Button Style="{StaticResource InformButton}" Grid.Column="0" x:Name="BtnMakeAnOrder" Content="make an order" Width="100" HorizontalAlignment="Left" Margin="50,35,0,40"/>
+            <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnShowProducts" Content="show prod..." Width="100" HorizontalAlignment="Right" Margin="0,35,50,40" Click="BtnShowProducts_Click"/>
+            <Button Style="{StaticResource InformButton}" Grid.Column="0" x:Name="BtnMakeAnOrder" Content="make an order" Width="100" HorizontalAlignment="Left" Margin="50,35,0,40" Click="BtnMakeAnOrder_Click"/>
         </Grid>
 
     </Grid>

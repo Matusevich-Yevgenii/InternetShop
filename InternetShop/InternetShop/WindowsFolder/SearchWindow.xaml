@@ -179,7 +179,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="55"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnBucket" Content="Bucket" Width="100" HorizontalAlignment="Right" Margin="0,25,50,24"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnBucket" Content="Bucket" Width="100" HorizontalAlignment="Right" Margin="0,25,50,24" Click="BtnBucket_Click"/>
             </Grid>
 
         </Border>

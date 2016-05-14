@@ -23,5 +23,19 @@ namespace InternetShop.WindowsFolder
         {
             InitializeComponent();
         }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new SearchWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnBucket_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new BucketWindow();
+            t.Show();
+            Close();
+        }
     }
 }

@@ -25,33 +25,51 @@ namespace InternetShop.WindowsFolder
             InitializeComponent();
             TvCategory.ItemsSource = CategoryCreator.GetCreatorList();
         }
-        //private void btnShow_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataTable dataTable = ds.Tables[0];
 
-        //    foreach (DataRow row in dataTable.Rows)
-        //    {
-        //        if (row[0].ToString() == cbImages.SelectedItem.ToString())
-        //        {
-        //            //Store binary data read from the database in a byte array
-        //            byte[] blob = (byte[])row[3];
-        //            MemoryStream stream = new MemoryStream();
-        //            stream.Write(blob, 0, blob.Length);
-        //            stream.Position = 0;
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new SearchWindow();
+            t.Show();
+            Close();
+        }
 
-        //            System.Drawing.Image img = System.Drawing.Image.FromStream(stream);
-        //            BitmapImage bi = new BitmapImage();
-        //            bi.BeginInit();
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new MainWindow();
+            t.Show();
+            Close();
+        }
 
-        //            MemoryStream ms = new MemoryStream();
-        //            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-        //            ms.Seek(0, SeekOrigin.Begin);
-        //            bi.StreamSource = ms;
-        //            bi.EndInit();
-        //            image2.Source = bi;
+        private void lbProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lbProducts.SelectedItem != null)
+            {
+                var r = new Random();
+                var random = new int[4];
+                var prd = new Product[4];
 
-        //        }
-        //    }
-        //}
+                for (int i = 0; i < 4; i++)
+                {
+                    int count = 0;
+                    random[i] = r.Next(0, lbProducts.Items.Count);
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (random[i] == random[j] || (Product)lbProducts.Items[random[i]] == (Product)lbProducts.SelectedItem) count++;
+                    }
+                    if (count == 0)
+                    {
+                        prd[i] = (Product)lbProducts.Items[random[i]];
+                    }
+                    else
+                    {
+                        i--;
+                    }
+                }
+
+                var t = new ProductWindow((Product)lbProducts.SelectedItem, prd);
+                t.Show();
+                Close();
+            }
+        }
     }
 }
