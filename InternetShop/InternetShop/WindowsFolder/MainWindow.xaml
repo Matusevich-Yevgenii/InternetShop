@@ -122,7 +122,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
                 <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" Click="BtnSearch_Click" />
                 <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnSignIn" Content="Register" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24" Click="BtnSignIn_Click"/>
             </Grid>
 
@@ -130,30 +130,34 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="184*"/>
+                <RowDefinition Height="30*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="61*"/>
                 <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="156" Margin="300,14" Width="192">
-                <Label x:Name="LblShop" Content="Shop" HorizontalAlignment="Left" Margin="10,41,-1,0" VerticalAlignment="Top" Height="116" Width="182" FontSize="64"/>
+            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="156" Margin="322,10,278,7" Width="192">
+                <Label x:Name="LblShop" Content="Shop" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="116" Width="182" FontSize="64"/>
             </Grid>
-            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="270">
-                <TextBox x:Name="TbLogin" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
-                <Label x:Name="LblLogin" Target="{Binding ElementName=TbLogin}" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,0,0,0"/>
+            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="300" Margin="301,2,191,0">
+                <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="Errormessage" VerticalAlignment="Top" Margin="10,0,0,0" Width="247" OpacityMask="Crimson" Foreground="#FFE5572C"  />
             </Grid>
             <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="270">
+                <TextBox x:Name="TbEmail" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
+                <Label x:Name="LblEmail" Target="{Binding ElementName=TbEmail}" Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,0,0,0"/>
+            </Grid>
+            <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="270">
                 <PasswordBox x:Name="Passb" Height="25" VerticalAlignment="Top" Width="220" Margin="50,0,0,0"/>
                 <Label x:Name="LblPassb"  Target="{Binding ElementName=Passb}" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-15,-1,0,0"/>
             </Grid>
-            <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="286" >
-                <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Log in" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="52,10,149,0" />
+            <Grid Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="286" >
+                <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Log in" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="59,10,142,0" Click="BtnSubmit_Click" />
                 <Label x:Name="LblForgot" Content="forgot password?" HorizontalAlignment="Left" Margin="183,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.077" Height="35" Width="103"/>
             </Grid>
-            <Grid Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="64" Width="204">
+            <Grid Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="64" Width="204">
                 <Label x:Name="LblShowProducts" Content="go to shop without login?" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" Width="146"/>
-                <Button x:Name="BtnYes"  Style="{StaticResource InformButton}" Content="Yes" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="96,35,25,0" />
+                <Button x:Name="BtnYes"  Style="{StaticResource InformButton}" Content="Yes" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="96,35,25,0" Click="BtnYes_Click" />
             </Grid>
 
         </Grid>

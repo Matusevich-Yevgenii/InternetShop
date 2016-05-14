@@ -16,6 +16,7 @@ using System.Data;
 using System.IO;
 using System.Data.SqlClient;
 using System.Drawing.Imaging;
+using System.Configuration;
 
 namespace InternetShop.WindowsFolder
 {
@@ -26,7 +27,7 @@ namespace InternetShop.WindowsFolder
     {
         DataSet ds;
         string strName, imageName;
-        string constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\4 семестр\InternetShop\InternetShop\InternetShop\CarDB.mdf;Integrated Security=True";
+        string constr = ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString;
 
         public EditProducts()
         {
@@ -112,12 +113,12 @@ namespace InternetShop.WindowsFolder
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
                             //Pass byte array into database
-                            cmd.Parameters.Add(new SqlParameter("name", TbName.Text));
-                            cmd.Parameters.Add(new SqlParameter("model", TbModel.Text));
-                            cmd.Parameters.Add(new SqlParameter("image", imgByteArr));
-                            cmd.Parameters.Add(new SqlParameter("price", TbPrice.Text));
-                            cmd.Parameters.Add(new SqlParameter("warranty", TbWarranty.Text));
-                            cmd.Parameters.Add(new SqlParameter("descriptions", TbDescription.Text));
+                            cmd.Parameters.Add(new SqlParameter("@name", TbName.Text));
+                            cmd.Parameters.Add(new SqlParameter("@model", TbModel.Text));
+                            cmd.Parameters.Add(new SqlParameter("@image", imgByteArr));
+                            cmd.Parameters.Add(new SqlParameter("@price", TbPrice.Text));
+                            cmd.Parameters.Add(new SqlParameter("@warranty", TbWarranty.Text));
+                            cmd.Parameters.Add(new SqlParameter("@descriptions", TbDescription.Text));
                             int result = cmd.ExecuteNonQuery();
                             if (result == 1)
                             {
@@ -125,6 +126,7 @@ namespace InternetShop.WindowsFolder
                                 //BindImageList();
                             }
                         }
+                        conn.Close();
                     }
                 }
                 TbName.Text = TbModel.Text = TbPrice.Text = TbWarranty.Text = TbDescription.Text = "";

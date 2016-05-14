@@ -23,5 +23,33 @@ namespace InternetShop.WindowsFolder
         {
             InitializeComponent();
         }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new SearchWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new MainWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnMakeAnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new OrderWindow();
+            t.Show();
+            Close();
+        }
+
+        private void BtnShowProducts_Click(object sender, RoutedEventArgs e)
+        {
+            var t = new ShowProductsWindow();
+            t.Show();
+            Close();
+        }
     }
 }

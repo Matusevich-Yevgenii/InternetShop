@@ -10,21 +10,35 @@
         Title="OrderWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
     <Window.Resources>
         <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
+        <convert:ImagePathConverter x:Key="ImagePathConverter"></convert:ImagePathConverter>
+        <convert:MoneyConverter x:Key="MoneyConverter"></convert:MoneyConverter>
 
         <data:ProductList x:Key="Products"></data:ProductList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
-            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4"
-                    HorizontalAlignment="Stretch">
+            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4">
                 <Grid Margin="3" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock FontWeight="Bold"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Width="100" Height="75"
+                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
+                    <StackPanel Grid.Column="1" Margin="20, 6, 2, 6">
+                        <TextBlock TextWrapping="Wrap" FontWeight="Bold"
                                Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
-                    <TextBlock Grid.Row="1" Text="{Binding Price}"/>
+                        <TextBlock TextWrapping="Wrap" FontWeight="Bold"
+                               Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="20, 6, 2, 6">
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Descriptions}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Margin="20, 6, 15, 6" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>
+                    </StackPanel>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -170,8 +184,8 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="LblHome" Content="Internet shop" FontSize="18.667" Margin="40,17,0,12" HorizontalAlignment="Left" Width="120"/>
                 <TextBox  Grid.Column="1" x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="46,25,10,24" BorderThickness="1"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" />
-                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnBucket" Content="Bucket" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="2" x:Name="BtnSearch" Content="Search" Margin="10,25,0,24" Width="100" HorizontalAlignment="Left" Click="BtnSearch_Click" />
+                <Button Style="{StaticResource InformButton}" Grid.Column="3" x:Name="BtnBucket" Content="Bucket" Width="100" HorizontalAlignment="Right" Margin="0,25,41,24" Click="BtnBucket_Click"/>
             </Grid>
 
         </Border>
