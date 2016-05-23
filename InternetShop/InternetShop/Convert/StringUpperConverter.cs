@@ -11,7 +11,7 @@ namespace InternetShop.Convert
         public object Convert(object value, Type targetType, object parameter,
             System.Globalization.CultureInfo culture)
         {
-            _text = (string) value;
+            _text = value.ToString();
             return _text.ToUpper();
         }
 

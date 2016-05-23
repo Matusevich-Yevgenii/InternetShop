@@ -7,13 +7,14 @@
         xmlns:convert="clr-namespace:InternetShop.Convert"
         xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
         mc:Ignorable="d"
-        Title="BucketWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
+        Title="BucketWindow" Width="800" Height="600" MinWidth="800" MinHeight="600" Loaded="Window_Loaded">
     <Window.Resources>
+        <convert:ItemConverter x:Key="ItemConverter"></convert:ItemConverter>
+        <convert:ItemNameConverter x:Key="ItemNameConverter"></convert:ItemNameConverter>
         <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
-        <convert:ImagePathConverter x:Key="ImagePathConverter"></convert:ImagePathConverter>
-        <convert:MoneyConverter x:Key="MoneyConverter"></convert:MoneyConverter>
+        <convert:ItemDescriptionConverter x:Key="ItemDescriptionConverter"></convert:ItemDescriptionConverter>
 
-        <data:ProductList x:Key="Products"></data:ProductList>
+        <data:BucketList x:Key="Bucket"></data:BucketList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
@@ -26,18 +27,16 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Image Grid.RowSpan="2" Width="100" Height="75"
-                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
+                           Source="{Binding ProdId, Converter={StaticResource ItemConverter}}"/>
                     <StackPanel Grid.Column="1" Margin="20, 6, 2, 6">
                         <TextBlock TextWrapping="Wrap" FontWeight="Bold"
-                               Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
-                        <TextBlock TextWrapping="Wrap" FontWeight="Bold"
-                               Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"/>
+                               Text="{Binding ProdId, Converter={StaticResource ItemNameConverter}}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Margin="20, 6, 2, 6">
-                        <TextBlock TextWrapping="Wrap" Text="{Binding Descriptions}"/>
+                    <StackPanel Grid.Column="2" Margin="10, 6, 2, 6">
+                        <TextBlock TextWrapping="Wrap" Text="{Binding ProdId, Converter={StaticResource ItemDescriptionConverter}}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3" Margin="20, 6, 15, 6" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>
+                    <StackPanel Grid.Column="3" Margin="10, 6, 15, 6"  HorizontalAlignment="Right">
+                        <TextBlock FontWeight="Bold" Text="{Binding Amount, Converter={StaticResource StringUpperConverter}}"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -191,7 +190,7 @@
         <Border Grid.Row="1"  BorderThickness="0 0 0 0" BorderBrush="Black" Margin="50, 50, 50, 0">
             <ListBox Name="lbProducts" 
                      BorderThickness="0" 
-                     ItemsSource="{Binding Source={StaticResource Products}}" 
+                     ItemsSource="{Binding Source={StaticResource Bucket}}" 
                      ItemTemplate="{StaticResource ListDataTemplate}"
                      ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Grid.RowSpan="2"/>
         </Border>

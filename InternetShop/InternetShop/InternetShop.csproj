@@ -73,6 +73,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Convert\ImagePathConverter.cs" />
+    <Compile Include="Convert\ItemConverter.cs" />
+    <Compile Include="Convert\ItemDescriptionConverter.cs" />
+    <Compile Include="Convert\ItemNameConverter.cs" />
     <Compile Include="Convert\MoneyConverter.cs" />
     <Compile Include="Convert\StringUpperConverter.cs" />
     <Compile Include="DbCarDataSet.Designer.cs">

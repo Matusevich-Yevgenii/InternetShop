@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InternetShop.Data;
 
 namespace InternetShop.WindowsFolder
 {
@@ -50,6 +51,11 @@ namespace InternetShop.WindowsFolder
             var t = new ShowProductsWindow();
             t.Show();
             Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //lbProducts.ItemsSource = BucketList;
         }
     }
 }
