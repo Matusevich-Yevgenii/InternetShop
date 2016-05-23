@@ -36,7 +36,7 @@ namespace InternetShop.WindowsFolder
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow();
+            var t = new SearchWindow(TbSearch.Text);
             t.Show();
             Close();
         }
@@ -90,7 +90,37 @@ namespace InternetShop.WindowsFolder
                     }
                     conn.Close();
                 }
+                MessageBox.Show("Added to bucket");
             }
+        }
+
+        private void f(int i)
+        {
+            var temp = _prd[i];
+            _prd[i] = _product;
+            var t = new ProductWindow(temp, _prd);
+            t.Show();
+            Close();
+        }
+
+        private void GridSame1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            f(0);
+        }
+
+        private void GridSame2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            f(1);
+        }
+
+        private void GridSame3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            f(2);
+        }
+
+        private void GridSame4_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            f(3);
         }
     }
 }

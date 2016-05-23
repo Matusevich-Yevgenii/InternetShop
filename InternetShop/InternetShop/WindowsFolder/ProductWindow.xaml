@@ -188,19 +188,19 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" x:Name="GridSame1" HorizontalAlignment="Left" Width="198">
+            <Grid Grid.Column="0" x:Name="GridSame1" HorizontalAlignment="Left" Width="198" MouseUp="GridSame1_MouseUp">
                 <Image x:Name="ImgSame1" Source="{Binding Image, Converter={StaticResource ImagePathConverter}}" Width="100"  Grid.Column="0" Height="100"  Margin="49,10,49,40" />
                 <TextBlock x:Name="tbName1"   FontWeight="Bold"  TextWrapping="Wrap" Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"  Height="26"  Margin="49,115,0,9"/>
             </Grid>
-            <Grid Grid.Column="1" x:Name="GridSame2" HorizontalAlignment="Center" Width="198">
+            <Grid Grid.Column="1" x:Name="GridSame2" HorizontalAlignment="Center" Width="198" MouseUp="GridSame2_MouseUp">
                 <Image x:Name="ImgSame2" Source="{Binding Image, Converter={StaticResource ImagePathConverter}}" Height="100"  Width="100" Margin="49,10,49,40" />
                 <TextBlock x:Name="tbName2"  FontWeight="Bold"  TextWrapping="Wrap" Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"  Height="26"  Margin="49,115,0,9"/>
             </Grid>
-            <Grid Grid.Column="2" x:Name="GridSame3" HorizontalAlignment="Center" Width="198">
+            <Grid Grid.Column="2" x:Name="GridSame3" HorizontalAlignment="Center" Width="198" MouseUp="GridSame3_MouseUp">
                 <Image x:Name="ImgSame3" Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"  Height="100"  Width="100" Margin="49,10,49,40"/>
                 <TextBlock x:Name="tbName3" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"  Height="26" Margin="49,115,0,9"  />
             </Grid>
-            <Grid Grid.Column="3" x:Name="GridSame4" HorizontalAlignment="Right" Width="198">
+            <Grid Grid.Column="3" x:Name="GridSame4" HorizontalAlignment="Right" Width="198" MouseUp="GridSame4_MouseUp">
                 <Image x:Name="ImgSame4" Source="{Binding Image, Converter={StaticResource ImagePathConverter}}" Height="100"   Width="100" Margin="49,10,49,40"  />
                 <TextBlock x:Name="tbName4" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"  Height="26" Margin="49,115,0,9" />
             </Grid>

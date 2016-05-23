@@ -44,6 +44,7 @@
     <Compile Include="AmountOfProduct.cs" />
     <Compile Include="Bucket.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

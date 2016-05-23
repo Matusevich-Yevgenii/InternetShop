@@ -79,7 +79,7 @@ namespace InternetShop.WindowsFolder
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow();
+            var t = new SearchWindow(TbSearch.Text);
             t.Show();
             Close();
         }

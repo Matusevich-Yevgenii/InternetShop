@@ -9,11 +9,12 @@
         mc:Ignorable="d"
         Title="OrderWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
     <Window.Resources>
+        <convert:ItemConverter x:Key="ItemConverter"></convert:ItemConverter>
+        <convert:ItemNameConverter x:Key="ItemNameConverter"></convert:ItemNameConverter>
         <convert:StringUpperConverter x:Key="StringUpperConverter"></convert:StringUpperConverter>
-        <convert:ImagePathConverter x:Key="ImagePathConverter"></convert:ImagePathConverter>
-        <convert:MoneyConverter x:Key="MoneyConverter"></convert:MoneyConverter>
+        <convert:ItemModelConverter x:Key="ItemModelConverter"></convert:ItemModelConverter>
 
-        <data:ProductList x:Key="Products"></data:ProductList>
+        <data:BucketList x:Key="Bucket"></data:BucketList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
@@ -22,22 +23,18 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition />
-                        <ColumnDefinition Width="200"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Image Grid.RowSpan="2" Width="100" Height="75"
-                           Source="{Binding Image, Converter={StaticResource ImagePathConverter}}"/>
+                           Source="{Binding ProdId, Converter={StaticResource ItemConverter}}"/>
                     <StackPanel Grid.Column="1" Margin="20, 6, 2, 6">
                         <TextBlock TextWrapping="Wrap" FontWeight="Bold"
-                               Text="{Binding Name, Converter={StaticResource StringUpperConverter}}"/>
+                               Text="{Binding ProdId, Converter={StaticResource ItemNameConverter}}"/>
                         <TextBlock TextWrapping="Wrap" FontWeight="Bold"
-                               Text="{Binding Model, Converter={StaticResource StringUpperConverter}}"/>
+                               Text="{Binding ProdId, Converter={StaticResource ItemModelConverter}}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Margin="20, 6, 2, 6">
-                        <TextBlock TextWrapping="Wrap" Text="{Binding Descriptions}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="3" Margin="20, 6, 15, 6" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}"/>
+                    <StackPanel Grid.Column="2" Margin="10, 6, 15, 6"  HorizontalAlignment="Right">
+                        <TextBlock FontWeight="Bold" Text="{Binding Amount, Converter={StaticResource StringUpperConverter}}"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -213,7 +210,7 @@
                 <Label x:Name="LblTelephone"  Target="{Binding ElementName=TbTelephone}" Content="Telephone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-16,0,0,0"/>
             </Grid>
             <Grid Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="286" >
-                <Button x:Name="BtnAccept"  Style="{StaticResource InformButton}" Content="Accept" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="59,10,142,0" />
+                <Button x:Name="BtnAccept"  Style="{StaticResource InformButton}" Content="Accept" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="59,10,142,0" Click="BtnAccept_Click" />
             </Grid>
         </Grid>
 
@@ -224,9 +221,9 @@
             <!-- List Box -->
             <ListBox  Name="lbProducts" Margin="15, 35,15,15"
                      BorderThickness="0" 
-                     ItemsSource="{Binding Source={StaticResource Products}}" 
+                     ItemsSource="{Binding Source={StaticResource Bucket}}" 
                      ItemTemplate="{StaticResource ListDataTemplate}"
-                     ItemContainerStyle="{DynamicResource _ListBoxItemStyle}">
+                     ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" MouseDoubleClick="lbProducts_MouseDoubleClick">
 
             </ListBox>
         </Border>

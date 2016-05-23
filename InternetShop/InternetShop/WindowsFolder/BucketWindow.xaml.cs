@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,7 @@ namespace InternetShop.WindowsFolder
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow();
+            var t = new SearchWindow(TbSearch.Text);
             t.Show();
             Close();
         }
@@ -41,9 +43,16 @@ namespace InternetShop.WindowsFolder
 
         private void BtnMakeAnOrder_Click(object sender, RoutedEventArgs e)
         {
-            var t = new OrderWindow();
-            t.Show();
-            Close();
+            if (lbProducts.Items.Count != 0)
+            {
+                var t = new OrderWindow();
+                t.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Bucket is empty");
+            }
         }
 
         private void BtnShowProducts_Click(object sender, RoutedEventArgs e)
@@ -56,6 +65,62 @@ namespace InternetShop.WindowsFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //lbProducts.ItemsSource = BucketList;
+        }
+
+        private void lbProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lbProducts.SelectedItem != null)
+            {
+                var r = new Random();
+                var random = new int[4];
+                var prd = new Product[4];
+                var p = new Product();
+
+                int count = 0;
+                using (
+                    var conn =
+                        new SqlConnection(
+                            ConfigurationManager.ConnectionStrings[
+                                "InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString))
+                {
+                    conn.Open();
+                    var sql = new SqlCommand("SELECT * FROM CarTable", conn);
+                    using (var reader = sql.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                if (((Bucket)lbProducts.SelectedItem).ProdId == (int)reader["id"])
+                                {
+                                    p = new Product((string)reader["name"], (string)reader["model"],
+                                        (byte[])reader["image"], (string)reader["price"],
+                                        (string)reader["warranty"], (string)reader["descriptions"])
+                                    {
+                                        Id = (int)reader["id"]
+                                    };
+                                }
+                                else
+                                {
+                                    prd[count] = new Product((string)reader["name"], (string)reader["model"],
+                                        (byte[])reader["image"], (string)reader["price"],
+                                        (string)reader["warranty"], (string)reader["descriptions"])
+                                    {
+                                        Id = (int)reader["id"]
+                                    };
+
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                var t = new ProductWindow(p, prd);
+                t.Show();
+                Close();
+            }
         }
     }
 }

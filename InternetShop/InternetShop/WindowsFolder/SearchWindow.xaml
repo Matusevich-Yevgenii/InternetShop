@@ -13,7 +13,6 @@
         <converts:ImagePathConverter x:Key="ImagePathConverter"></converts:ImagePathConverter>
         <converts:MoneyConverter x:Key="MoneyConverter"></converts:MoneyConverter>
 
-        <data:ProductList x:Key="Products"></data:ProductList>
 
         <!--Шаблон для одного элемента списка-->
         <DataTemplate x:Key="ListDataTemplate">
@@ -188,9 +187,8 @@
         <Border Grid.Row="2"  BorderThickness="0 0 0 0" BorderBrush="Black" Margin="100, 25,50,25">
             <ListBox Name="lbProducts" 
                      BorderThickness="0" 
-                     ItemsSource="{Binding Source={StaticResource Products}}" 
                      ItemTemplate="{StaticResource ListDataTemplate}"
-                     ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Grid.RowSpan="2"/>
+                     ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Grid.RowSpan="2" MouseDoubleClick="lbProducts_MouseDoubleClick"/>
         </Border>
 
         <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Black">
@@ -203,7 +201,7 @@
                     <ColumnDefinition Width="161"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="TbSearch" BorderBrush="LightSkyBlue" TextWrapping="Wrap" Margin="107,35,10,40" BorderThickness="1" Grid.Column="0"/>
-                <Button Style="{StaticResource InformButton}" Grid.Column="1" x:Name="BtnSearch" Content="Search" Width="100" HorizontalAlignment="Right" Margin="0,35,50,39"/>
+                <Button Style="{StaticResource InformButton}" Grid.Column="1" x:Name="BtnSearch" Content="Search" Width="100" HorizontalAlignment="Right" Margin="0,35,50,39" Click="BtnSearch_Click"/>
             </Grid>
         </Border>
 
