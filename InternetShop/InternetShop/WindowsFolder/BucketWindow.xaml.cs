@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InternetShop.Data;
+using InternetShop.WindowsFolder.Memento;
 
 namespace InternetShop.WindowsFolder
 {
@@ -22,15 +23,20 @@ namespace InternetShop.WindowsFolder
     /// </summary>
     public partial class BucketWindow : Window
     {
-        public BucketWindow()
+        private Caretaker _caretaker;
+
+        public BucketWindow(Caretaker l)
         {
             InitializeComponent();
+            _caretaker = l;
+
+            if (_caretaker.Memento.State != null && _caretaker.Memento.State != "")
+                BtnSignIn.Content = _caretaker.Memento.State;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, _caretaker).SearchWithShow();
             Close();
         }
 
@@ -45,7 +51,11 @@ namespace InternetShop.WindowsFolder
         {
             if (lbProducts.Items.Count != 0)
             {
-                var t = new OrderWindow();
+                var t = new OrderWindow(_caretaker);
+                //if (login!=null)
+                //{
+                //    t = new OrderWindow(login);
+                //}
                 t.Show();
                 Close();
             }
@@ -57,7 +67,11 @@ namespace InternetShop.WindowsFolder
 
         private void BtnShowProducts_Click(object sender, RoutedEventArgs e)
         {
-            var t = new ShowProductsWindow();
+            var t = new ShowProductsWindow(_caretaker);
+            //if (login!=null)
+            //{
+            //   // t = new ShowProductsWindow(login);
+            //}
             t.Show();
             Close();
         }
@@ -114,10 +128,15 @@ namespace InternetShop.WindowsFolder
                             }
                         }
                     }
+                    conn.Close();
 
                 }
 
-                var t = new ProductWindow(p, prd);
+                var t = new ProductWindow(p, prd, _caretaker);
+                //if (login!=null)
+                //{
+                //    t = new ProductWindow(p, prd, login);
+                //}
                 t.Show();
                 Close();
             }

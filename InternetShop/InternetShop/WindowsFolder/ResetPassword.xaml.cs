@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InternetShop.WindowsFolder.Memento;
 
 namespace InternetShop.WindowsFolder
 {
@@ -19,21 +20,26 @@ namespace InternetShop.WindowsFolder
     /// </summary>
     public partial class ResetPassword : Window
     {
-        public ResetPassword()
+        private Caretaker _caretaker;
+        public ResetPassword(Caretaker l)
         {
             InitializeComponent();
+            _caretaker = l;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, _caretaker).SearchWithShow();
             Close();
         }
 
         private void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
             var t = new MainWindow();
+            //if (login!=null)
+            //{
+            //    t = new MainWindow();
+            //}
             t.Show();
             Close();
         }

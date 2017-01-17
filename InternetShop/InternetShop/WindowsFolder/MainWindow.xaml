@@ -153,7 +153,7 @@
             </Grid>
             <Grid Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="286" >
                 <Button x:Name="BtnSubmit"  Style="{StaticResource InformButton}" Content="Log in" Height="25" Padding="15,5,15,5" VerticalAlignment="Top" Margin="59,10,142,0" Click="BtnSubmit_Click" />
-                <Label x:Name="LblForgot" Content="forgot password?" HorizontalAlignment="Left" Margin="183,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.077" Height="35" Width="103"/>
+                <Label x:Name="LblForgot" Content="forgot password?" HorizontalAlignment="Left" Margin="183,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.077" Height="35" Width="103" MouseUp="LblForgot_MouseUp"/>
             </Grid>
             <Grid Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"  Height="64" Width="204">
                 <Label x:Name="LblShowProducts" Content="go to shop without login?" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" Width="146"/>

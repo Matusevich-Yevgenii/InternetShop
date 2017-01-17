@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InternetShop.Data;
+using InternetShop.WindowsFolder.Memento;
 
 namespace InternetShop.WindowsFolder
 {
@@ -26,31 +27,41 @@ namespace InternetShop.WindowsFolder
         private readonly Product _product;
         private Product[] _prd;
         string constr = ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString;
+        private string login;
+        private Caretaker _caretaker;
 
-        public ProductWindow(Product product = null, Product[] prd = null)
+        public ProductWindow(Product product = null, Product[] prd = null, Caretaker l = null)
         {
             InitializeComponent();
             this._product = product;
             this._prd = prd;
+            _caretaker = l;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, _caretaker).SearchWithShow();
             Close();
         }
 
         private void BtnBucket_Click(object sender, RoutedEventArgs e)
         {
-            var t = new BucketWindow();
+            var t = new BucketWindow(_caretaker);
+            //if (_caretaker.Memento.State != null)
+            //{
+            //    t = new BucketWindow(_caretaker);
+            //}
             t.Show();
             Close();
         }
 
         private void BtnShowProducts_Click(object sender, RoutedEventArgs e)
         {
-            var t = new ShowProductsWindow();
+            var t = new ShowProductsWindow(_caretaker);
+            //if (_caretaker.Memento.State != null)
+            //{
+            //    t = new ShowProductsWindow(_caretaker.);
+            //}
             t.Show();
             Close();
         }
@@ -98,7 +109,11 @@ namespace InternetShop.WindowsFolder
         {
             var temp = _prd[i];
             _prd[i] = _product;
-            var t = new ProductWindow(temp, _prd);
+            var t = new ProductWindow(temp, _prd, _caretaker);
+            //if (login!=null)
+            //{
+            //    t = new ProductWindow(temp, _prd, _caretaker);
+            //}
             t.Show();
             Close();
         }

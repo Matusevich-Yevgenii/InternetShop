@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,24 +13,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InternetShop.Data;
+using InternetShop.WindowsFolder.Memento;
+using InternetShop.WindowsFolder.Proxy;
 
 namespace InternetShop.WindowsFolder
 {
     /// <summary>
     /// Логика взаимодействия для ShowProductsWindow.xaml
     /// </summary>
-    public partial class ShowProductsWindow : Window
+    public partial class ShowProductsWindow : Window, IFeatures
     {
-        public ShowProductsWindow()
+        private Caretaker _caretaker;
+        private IFeatures _features;
+
+        public ShowProductsWindow(Caretaker caretaker = null, FeaturesOperator features = null)
         {
             InitializeComponent();
-            TvCategory.ItemsSource = CategoryCreator.GetCreatorList();
+            _caretaker = caretaker;
+            _features = features;
+
+            if (features != null)
+                TvCategory.ItemsSource = Request();
+            else
+                TvCategory.ItemsSource = CategoryCreator.GetCreatorList();
+
+            if(_caretaker.Memento.State != null && _caretaker.Memento.State != "")
+                BtnSignIn.Content = _caretaker.Memento.State;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, _caretaker).SearchWithShow();
             Close();
         }
 
@@ -66,10 +80,24 @@ namespace InternetShop.WindowsFolder
                     }
                 }
 
-                var t = new ProductWindow((Product)lbProducts.SelectedItem, prd);
+                var t = new ProductWindow((Product)lbProducts.SelectedItem, prd, _caretaker);
+                //if (_caretaker.Memento.State != null)
+                //{
+                //    t = new ProductWindow((Product)lbProducts.SelectedItem, prd, _caretaker);
+                //}
                 t.Show();
                 Close();
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
+        }
+        
+        public List<Categories> Request()
+        {
+            return _features.Request();
         }
     }
 }

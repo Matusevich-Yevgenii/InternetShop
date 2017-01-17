@@ -7,7 +7,7 @@
         xmlns:converts="clr-namespace:InternetShop.Convert"
         xmlns:data="clr-namespace:InternetShop.Data;assembly=InternetShop.Data"
         mc:Ignorable="d"
-        Title="ShowProductsWindow" Width="800" Height="600" MinWidth="800" MinHeight="600">
+        Title="ShowProductsWindow" Width="800" Height="600" MinWidth="800" MinHeight="600" Closed="Window_Closed">
     <Window.Resources>
         <converts:StringUpperConverter x:Key="StringUpperConverter"></converts:StringUpperConverter>
         <converts:ImagePathConverter x:Key="ImagePathConverter"></converts:ImagePathConverter>

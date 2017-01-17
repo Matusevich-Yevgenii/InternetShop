@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InternetShop.WindowsFolder.Memento;
 
 namespace InternetShop.WindowsFolder
 {
@@ -23,9 +24,12 @@ namespace InternetShop.WindowsFolder
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public RegisterWindow()
+        private string email = null;
+        private Caretaker _caretaker;
+        public RegisterWindow(Caretaker l)
         {
             InitializeComponent();
+            _caretaker = l;
         }
         public void Reset()
         {
@@ -50,7 +54,7 @@ namespace InternetShop.WindowsFolder
             }
             else
             {
-                var email = TbEmail.Text;
+                email = TbEmail.Text;
                 var login = TbLogin.Text;
                 var name = TbName.Text;
                 var surname = TbSurname.Text;
@@ -92,8 +96,7 @@ namespace InternetShop.WindowsFolder
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, _caretaker).SearchWithShow();
             Close();
         }
 

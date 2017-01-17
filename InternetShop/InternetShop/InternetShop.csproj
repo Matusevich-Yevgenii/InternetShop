@@ -79,29 +79,42 @@
     <Compile Include="Convert\ItemNameConverter.cs" />
     <Compile Include="Convert\MoneyConverter.cs" />
     <Compile Include="Convert\StringUpperConverter.cs" />
+    <Compile Include="DbCarDataSet.cs">
+      <DependentUpon>DbCarDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DbCarDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbCarDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFolder\BasicSearch.cs" />
     <Compile Include="WindowsFolder\BucketWindow.xaml.cs">
       <DependentUpon>BucketWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsFolder\EditProducts.xaml.cs">
       <DependentUpon>EditProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFolder\Handler.cs" />
+    <Compile Include="WindowsFolder\HandlerServer1.cs" />
+    <Compile Include="WindowsFolder\HandlerServer2.cs" />
+    <Compile Include="WindowsFolder\Memento\Caretaker.cs" />
+    <Compile Include="WindowsFolder\Memento\Memento.cs" />
+    <Compile Include="WindowsFolder\Memento\Originator.cs" />
     <Compile Include="WindowsFolder\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsFolder\ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFolder\Proxy\IFeatures.cs" />
+    <Compile Include="WindowsFolder\Proxy\FeaturesOperator.cs" />
     <Compile Include="WindowsFolder\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsFolder\ResetPassword.xaml.cs">
       <DependentUpon>ResetPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFolder\Search.cs" />
     <Compile Include="WindowsFolder\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>

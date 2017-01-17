@@ -8,8 +8,19 @@ namespace InternetShop.Data
 {
     public class Order
     {
-        public Bucket bucket { get; set; }
+        public int ?id { get; set; }
+
+        public List<Bucket> bucket = new List<Bucket>();
 
         public DateTime dateTime { get; set; }
+
+        public Order(Bucket[] b, DateTime d)
+        {
+            foreach (Bucket t in b)
+            {
+                bucket.Add(t);
+            }
+            dateTime = d;
+        }
     }
 }

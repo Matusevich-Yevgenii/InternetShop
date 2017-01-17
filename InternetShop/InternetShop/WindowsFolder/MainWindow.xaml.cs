@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InternetShop.WindowsFolder.Memento;
+using InternetShop.WindowsFolder.Proxy;
 
 namespace InternetShop.WindowsFolder
 {
@@ -24,9 +26,28 @@ namespace InternetShop.WindowsFolder
     /// </summary>
     public partial class MainWindow : Window
     {
+        Originator originator = new Originator();
+        Caretaker caretaker = new Caretaker();
+        string constr = ConfigurationManager.ConnectionStrings["InternetShop.Properties.Settings.DbCarConnectionString"].ConnectionString;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // reset State 
+            originator.State = "";
+            caretaker.Memento = originator.CreateMemento();
+
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                conn.Open();
+                string sql = "TRUNCATE TABLE Bucket";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
         
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
@@ -57,9 +78,20 @@ namespace InternetShop.WindowsFolder
                 if (dataSet.Tables[0].Rows.Count > 0)
                 {
                     string username = dataSet.Tables[0].Rows[0]["name"].ToString() + " " + dataSet.Tables[0].Rows[0]["surname"].ToString();
-                    var t = new ShowProductsWindow();
+                    // FACTORY METHOD and Proxy
+                    
+                    //for proxy // create some features for some users 
+                    var features = new FeaturesOperator();
+                    
+                    // Pattern MEMENTO  // save state that user is authorizate 
+                    originator.State = email;
+                    caretaker.Memento = originator.CreateMemento();
+
+                    var t = new ShowProductsWindow(caretaker, features); // Session for concrete creator ( for email and login);       
+                    t.Show(); // t.FactoryMethod();
+                    
+
                     //welcome.TextBlockName.Text = username;//Sending value from one form to another form.
-                    t.Show();
                     Close();
                 }
                 else
@@ -72,21 +104,32 @@ namespace InternetShop.WindowsFolder
 
         private void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            var t = new RegisterWindow();
+            var t = new RegisterWindow(caretaker);
             t.Show();
             Close();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var t = new SearchWindow(TbSearch.Text);
-            t.Show();
+            new Search(TbSearch.Text, caretaker).SearchWithShow();
             Close();
         }
 
         private void BtnYes_Click(object sender, RoutedEventArgs e)
         {
-            var t = new ShowProductsWindow();
+            var t = new ShowProductsWindow(caretaker);
+
+            t.Show();
+            Close();
+        }
+
+        private void LblForgot_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var t = new ResetPassword(caretaker);
+            //if (email!=null)
+            //{
+            //    t = new ResetPassword(email);
+            //}
             t.Show();
             Close();
         }
